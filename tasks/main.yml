@@ -15,7 +15,7 @@
   name: "{{ dockerhub_app }}"
 
 # web containers run
-- import_tasks: web.yml
+- import_tasks: flask.yml
   become: yes
   state: started
   networks:
