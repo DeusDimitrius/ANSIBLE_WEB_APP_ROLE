@@ -1,0 +1,4 @@
+---
+dockerhub_name: deusdimitrius
+dockerhub_password: 
+dockerhub_app: "deusdimitrius/epam_exam:flaskapp"

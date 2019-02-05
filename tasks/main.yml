@@ -1,0 +1,23 @@
+---
+
+- name: create docker network
+  docker_network:
+    name: docker_network
+    state: present
+
+- name: login to DockerHub
+  docker_hub_login:
+    username: "{{ dockerhub_name }}"
+    password: "{{ dockerhub_password }}"
+
+- name: pull image from Dockerhub
+  docker_hub_image:
+  name: "{{ dockerhub_app }}"
+
+# web containers run
+- import_tasks: web.yml
+  become: yes
+  state: started
+  networks:
+    - name: docker_network
+  tags: [webapp, run]
