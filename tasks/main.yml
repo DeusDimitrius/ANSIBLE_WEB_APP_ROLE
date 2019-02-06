@@ -1,12 +1,5 @@
 ---
 
-#- name: create docker network
-#  become: true
-#  become_method: sudo
-#  docker_network:
-#    name: docker_network
-#    state: present
-
 - name: Log into private registry and force re-authorization
   docker_login:
     registry: "deusdimitrius/epam_exam:flaskapp"
@@ -18,10 +11,18 @@
   docker_image:
   name: "deusdimitrius/epam_exam:flaskapp"
 
+- name: create docker network
+  become: true
+  become_method: sudo
+  docker_network:
+    name: docker_network
+    state: present
+
 #- name: Add container to networks
 #  docker_container:
 #    name: "{{ dockerhub_app }}"
-#    ports: 5000:5000
+#    exposed_ports:
+#      - 5000
 #    networks:
 #      - name: docker_network
 #        links: flaskapp
