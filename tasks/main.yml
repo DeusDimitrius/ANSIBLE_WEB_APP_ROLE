@@ -11,9 +11,12 @@
   docker_image:
   name: "deusdimitrius/epam_exam:flaskapp"
 
-- name: Create a network
-  docker_network:
-    name: network
+- name: create docker network
+  shell: docker network create dnet
+
+#- name: Create a network
+#  docker_network:
+#    name: network
 
 #- name: Add container to networks
 #  docker_container:
