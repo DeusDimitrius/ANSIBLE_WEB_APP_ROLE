@@ -14,6 +14,15 @@
 - name: create docker network
   shell: docker network create dnet
 
+- name: Run web container.
+  docker_container:
+    name: "flask" 
+    hostname: "flask"
+    ports:
+      "5000:5000"
+    image: "{{ dockerhub_app }}"
+    state: started
+
 #- name add container to network
 #  shell: docker run -d -p 5000:5000 --network=dnet  --name=flask {{ dockerhub_app }}
 
@@ -22,11 +31,11 @@
 #    name: agent
 #    image: hello-world
 
-- name: create a network
-  become: true
-  become_method: sudo
-  docker_network:
-    name: network
+#- name: create a network
+#  become: true
+#  become_method: sudo
+#  docker_network:
+#    name: network
 
 #- name: add container 
 #  docker_container:
