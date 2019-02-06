@@ -1,6 +1,8 @@
 ---
 
 - name: create docker network
+  become: true
+  become_method: sudo
   docker_network:
     name: docker_network
     state: present
