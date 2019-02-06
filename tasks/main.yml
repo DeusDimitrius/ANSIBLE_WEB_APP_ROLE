@@ -7,14 +7,16 @@
 #    name: docker_network
 #    state: present
 
-- name: login to DockerHub
-  docker_hub_login:
-    username: "{{ dockerhub_name }}"
+- name: Log into private registry and force re-authorization
+  docker_login:
+    registry: "deusdimitrius/epam_exam:flaskapp"
+    username: "deusdimitrius"
     password: "{{ dockerhub_password }}"
+    reauthorize: yes
 
 - name: pull image from Dockerhub
-  docker_hub_image:
-  name: "{{ dockerhub_app }}"
+  docker_image:
+  name: "deusdimitrius/epam_exam:flaskapp"
 
 #- name: Add container to networks
 #  docker_container:
