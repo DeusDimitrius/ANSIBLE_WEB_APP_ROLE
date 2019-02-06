@@ -22,9 +22,9 @@
 #    name: agent
 #    image: hello-world
 
-#- name: create a network
-#  docker_network:
-#    name: network
+- name: create a network
+  docker_network:
+    name: network
 
 #- name: add container 
 #  docker_container:
