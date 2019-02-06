@@ -14,10 +14,11 @@
   docker_hub_image:
   name: "{{ dockerhub_app }}"
 
-# web containers run
-- import_tasks: flask.yml
-  become: yes
-  state: started
-  networks:
-    - name: docker_network
-  tags: [webapp, run]
+- name: Add container to networks
+  docker_container:
+    name: "{{ dockerhub_app }}"
+    ports: 5000:5000
+    networks:
+      - name: docker_network
+        links: flaskapp
+
