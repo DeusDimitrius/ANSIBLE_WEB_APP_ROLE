@@ -25,7 +25,7 @@
     hostname: flaskapp
     exposed_ports:
       - 5000
-    state: started
+    detach: true
     networks:
       - name: dnet
 #        links: flaskapp
