@@ -14,21 +14,26 @@
 - name: create docker network
   shell: docker network create dnet
 
+- name: Start a container 
+  docker_container:
+    name: agent
+    image: hello-world
+
 #- name: create a network
 #  docker_network:
 #    name: network
 
-- name: add container 
-  docker_container:
-    name: flaskapp
-    hostname: flaskapp
+#- name: add container 
+#  docker_container:
+#    name: flaskapp
+#    hostname: flaskapp
 #    state: started
-    image: "deusdimitrius/epam_exam:flaskapp"
-    pull: true
+#    image: "deusdimitrius/epam_exam:flaskapp"
+#    pull: true
 #    exposed_ports:
 #      - 5000
 #    detach: true
-    networks:
-      - name: dnet
+#    networks:
+#      - name: dnet
 #        links: flaskapp
 #  with_items: "dfnet"
