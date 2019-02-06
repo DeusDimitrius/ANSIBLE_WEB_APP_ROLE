@@ -4,8 +4,8 @@
   docker_login:
     registry: "deusdimitrius/epam_exam:flaskapp"
     username: "deusdimitrius"
-    password: "{{ dockerhub_password }}"
-    reauthorize: yes
+    password: "intercept0r123"
+#    reauthorize: yes
 
 - name: pull image from Dockerhub
   docker_image:
