@@ -1,6 +1,6 @@
 ---
 
-- name: Log into private registry and force re-authorization
+- name: log into private registry and force re-authorization
   docker_login:
     registry: "deusdimitrius/epam_exam:flaskapp"
     username: "deusdimitrius"
@@ -14,16 +14,16 @@
 - name: create docker network
   shell: docker network create dnet
 
-#- name: Create a network
+#- name: create a network
 #  docker_network:
 #    name: network
 
-#- name: Add container to networks
-#  docker_container:
-#    name: "{{ dockerhub_app }}"
-#    exposed_ports:
-#      - 5000
-#    networks:
-#      - name: docker-net
-#        links: flaskapp
+- name: add container to networks
+  docker_container:
+    name: "{{ dockerhub_app }}"
+    exposed_ports:
+      - 5000
+    networks:
+      - name: docker-net
+        links: flaskapp
 
