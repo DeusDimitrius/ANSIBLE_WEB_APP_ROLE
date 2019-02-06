@@ -3,8 +3,8 @@
 - name: log into private registry and force re-authorization
   docker_login:
 #    registry: "{{ dockerhub_app }}"
-    username: "deusdimitrius"
-    password: "r123"
+    username: "{{ dockerhub_name }}"
+    password: "{{ dockerhub_password }}"
 #    reauthorize: yes
 
 - name: pull image from Dockerhub
@@ -25,10 +25,9 @@
 - name: add container 
   docker_container:
     name: flaskapp
-#    hostname: flaskapp
     state: started
-    image: "deusdimitrius/epam_exam:flaskapp"
-    ports:
+    image: "{{ dockerhub_app }}"
+    ports: 5000:5000
     networks:
       - name: dnet
         links: flaskapp
