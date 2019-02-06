@@ -23,8 +23,8 @@
     image: "deusdimitrius/epam_exam:flaskapp"
     name: flaskapp
     hostname: flaskapp
-    exposed_ports:
-      - 5000
+#    exposed_ports:
+#      - 5000
     detach: true
     networks:
       - name: "{{ item }}"
