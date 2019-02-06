@@ -25,7 +25,8 @@
     hostname: flaskapp
     exposed_ports:
       - 5000
+    state: started
     networks:
       - name: dnet
 #        links: flaskapp
-
+  with_items: "dfnet"
