@@ -32,3 +32,12 @@
       - name: dnet
         links: flaskapp
 
+#- name: Add all containers to network
+#  docker_network:
+#    name: dnet
+#    state: present
+#    connected:
+#      - container_a
+#      - container_b
+#      - container_c
+#    appends: yes
