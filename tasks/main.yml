@@ -20,10 +20,10 @@
 
 - name: add container to networks
   docker_container:
-    name: "{{ dockerhub_app }}"
+    name: "deusdimitrius/epam_exam:flaskapp"
     exposed_ports:
       - 5000
     networks:
       - name: docker-net
-        links: flaskapp
+#        links: flaskapp
 
