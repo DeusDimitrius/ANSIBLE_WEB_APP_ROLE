@@ -15,7 +15,7 @@
   become: true
   become_method: sudo
   docker_network:
-    name: docker_network
+    name: docker-net
     state: present
 
 #- name: Add container to networks
@@ -24,6 +24,6 @@
 #    exposed_ports:
 #      - 5000
 #    networks:
-#      - name: docker_network
+#      - name: docker-net
 #        links: flaskapp
 
