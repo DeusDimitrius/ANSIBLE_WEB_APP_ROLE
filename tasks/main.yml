@@ -24,6 +24,6 @@
     exposed_ports:
       - 5000
     networks:
-      - name: docker-net
+      - name: dnet
 #        links: flaskapp
 
