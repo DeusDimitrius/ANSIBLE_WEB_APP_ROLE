@@ -27,7 +27,7 @@
     name: flaskapp
     state: started
     image: "{{ dockerhub_app }}"
-    ports: 5000:5000
+    ports: "5000:5000"
     networks:
       - name: dnet
         links: flaskapp
