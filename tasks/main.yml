@@ -12,8 +12,6 @@
   name: "deusdimitrius/epam_exam:flaskapp"
 
 - name: create docker network
-  become: true
-  become_method: sudo
   docker_network:
     name: docker-net
     state: present
