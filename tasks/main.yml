@@ -14,10 +14,10 @@
 - name: create docker network
   shell: docker network create dnet
 
-- name: Start a container 
-  docker_container:
-    name: agent
-    image: hello-world
+#- name: Start a container 
+#  docker_container:
+#    name: agent
+#    image: hello-world
 
 #- name: create a network
 #  docker_network:
