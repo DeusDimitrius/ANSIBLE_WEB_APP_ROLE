@@ -1,11 +1,11 @@
 ---
 
-- name: create docker network
-  become: true
-  become_method: sudo
-  docker_network:
-    name: docker_network
-    state: present
+#- name: create docker network
+#  become: true
+#  become_method: sudo
+#  docker_network:
+#    name: docker_network
+#    state: present
 
 - name: login to DockerHub
   docker_hub_login:
