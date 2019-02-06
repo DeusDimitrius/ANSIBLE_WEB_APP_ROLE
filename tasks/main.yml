@@ -20,7 +20,9 @@
 
 - name: add container to networks
   docker_container:
-    name: "deusdimitrius/epam_exam:flaskapp"
+    image: "deusdimitrius/epam_exam:flaskapp"
+    name: flaskapp
+    hostname: flaskapp
     exposed_ports:
       - 5000
     networks:
