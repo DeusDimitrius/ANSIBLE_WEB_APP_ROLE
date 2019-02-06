@@ -20,6 +20,7 @@
 - name: create a network
   docker_network:
     name: dnet
+    state: present
 
 - name: add container 
   docker_container:
