@@ -20,13 +20,15 @@
 
 - name: add container to networks
   docker_container:
-    image: "deusdimitrius/epam_exam:flaskapp"
     name: flaskapp
     hostname: flaskapp
+    state: started
+    image: "deusdimitrius/epam_exam:flaskapp"
+    pull: true
 #    exposed_ports:
 #      - 5000
-    detach: true
+#    detach: true
     networks:
       - name: "{{ item }}"
 #        links: flaskapp
-  with_items: "dfnet"
+#  with_items: "dfnet"
