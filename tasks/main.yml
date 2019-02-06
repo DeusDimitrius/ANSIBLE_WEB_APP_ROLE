@@ -29,6 +29,6 @@
 #      - 5000
 #    detach: true
     networks:
-      - name: "{{ item }}"
+      - name: dnet
 #        links: flaskapp
 #  with_items: "dfnet"
