@@ -17,16 +17,16 @@
 #- name add container to network
 #  shell: docker run -d -p 5000:5000 --network=dnet  --name=flask {{ dockerhub_app }}
 
-- name: Start a container 
+#- name: Start a container 
+#  docker_container:
+#    name: agent
+#    image: hello-world
+
+- name: create a network
   become: true
   become_method: sudo
-  docker_container:
-    name: agent
-    image: hello-world
-
-#- name: create a network
-#  docker_network:
-#    name: network
+  docker_network:
+    name: network
 
 #- name: add container 
 #  docker_container:
