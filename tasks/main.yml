@@ -2,10 +2,10 @@
 
 - name: log into private registry and force re-authorization
   docker_login:
-#    registry: "{{ dockerhub_app }}"
+    registry: "{{ dockerhub_app }}"
     username: "{{ dockerhub_name }}"
     password: "{{ dockerhub_password }}"
-#    reauthorize: yes
+    reauthorize: yes
 
 - name: pull image from Dockerhub
   docker_image:
