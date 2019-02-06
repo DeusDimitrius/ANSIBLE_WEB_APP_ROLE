@@ -11,10 +11,9 @@
   docker_image:
   name: "deusdimitrius/epam_exam:flaskapp"
 
-- name: create docker network
+- name: Create a network
   docker_network:
-    name: docker-net
-    state: present
+    name: network
 
 #- name: Add container to networks
 #  docker_container:
