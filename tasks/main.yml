@@ -21,10 +21,10 @@
 #- name add container to network
 #  shell: docker run -d -p 5000:5000 --network=dnet  --name=flask {{ dockerhub_app }}
 
-#- name: create a network
-#  docker_network:
-#    name: dnet
-#    state: present
+- name: create a network
+  docker_network:
+    name: dnet
+    state: present
 
 #- name: add container 
 #  docker_container:
