@@ -17,27 +17,30 @@
 #- name add container to network
 #  shell: docker run -d -p 5000:5000 --network=dnet  --name=flask {{ dockerhub_app }}
 
-- name: create a network
-  docker_network:
-    name: dnet
-    state: present
+#- name: create a network
+#  docker_network:
+#    name: dnet
+#    state: present
 
 - name: add container 
   docker_container:
     name: flaskapp
-    state: started
+    state: present
     image: "{{ dockerhub_app }}"
     ports: "5000:5000"
     networks:
       - name: dnet
         links: flaskapp
 
-#- name: Add all containers to network
-#  docker_network:
-#    name: dnet
-#    state: present
-#    connected:
-#      - container_a
-#      - container_b
-#      - container_c
-#    appends: yes
+- name: Add all containers to network
+  docker_network:
+    name: dnet
+    state: started
+    connected:
+      - flaskapp
+        ports: "5001:5000"
+      - flaskapp
+        ports: "5002:5000"
+      - flaskapp
+        ports: "5003:5000"
+    appends: yes
