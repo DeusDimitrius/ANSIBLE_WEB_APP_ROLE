@@ -8,7 +8,7 @@
     ports: "5001:5000"
     state: started
     networks: 
-      - name: dnet
+      - name: snet
 
 - name: second container with flask
   docker_container:
@@ -18,7 +18,7 @@
     ports: "5002:5000"
     state: started
     networks:
-      - name: dnet
+      - name: snet
 
 - name: third container with flask
   docker_container:
@@ -28,4 +28,4 @@
     ports: "5003:5000"
     state: started
     networks:
-      - name: dnet
+      - name: snet
