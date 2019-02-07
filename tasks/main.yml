@@ -27,20 +27,18 @@
     name: flaskapp
     state: present
     image: "{{ dockerhub_app }}"
-    ports: "5000:5000"
+    ports:
+      - "5001:5000"
+      - "5002:5000"
+      - "5003:5000"
     networks:
       - name: dnet
-        links: flaskapp
+#        links: flaskapp
 
-- name: Add all containers to network
-  docker_network:
-    name: dnet
-    state: started
-    connected:
-      - flaskapp
-#        ports: "5001:5000"
+#- name: Add all containers to network
+#  docker_network:
+#    name: dnet
+#    state: started
+#    connected:
 #      - flaskapp
-#        ports: "5002:5000"
-#      - flaskapp
-#        ports: "5003:5000"
-    appends: yes
+#    appends: yes
