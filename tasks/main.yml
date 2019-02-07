@@ -40,14 +40,14 @@
 
 - include_tasks: "flask.yml"  
 
-- name: add all containers to network
-  become: true
-  become_method: sudo
-  docker_network:
-    name: dnet
-    state: started
-    connected:
-      - flaskapp_1
-      - flaskapp_2
-      - flaskapp_3
-    appends: yes
+#- name: add all containers to network
+#  become: true
+#  become_method: sudo
+#  docker_network:
+#    name: dnet
+#    state: started
+#    connected:
+#      - flaskapp_1
+#      - flaskapp_2
+#      - flaskapp_3
+#    appends: yes
