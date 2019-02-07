@@ -7,9 +7,9 @@
     password: "{{ dockerhub_password }}"
     reauthorize: yes
 
-- name: pull image from Dockerhub
-  docker_image:
-  name: "{{ dockerhub_app }}"
+#- name: pull image from Dockerhub
+#  docker_image:
+#  name: "{{ dockerhub_app }}"
 
 #- name: create docker network
 #  shell: docker network create dnet
@@ -35,6 +35,8 @@
 - include_tasks: "flask.yml"  
 
 - name: add all containers to network
+  become: true
+  become_method: sudo
   docker_network:
     name: dnet
     state: started
