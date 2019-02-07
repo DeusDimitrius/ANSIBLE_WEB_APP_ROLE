@@ -22,23 +22,24 @@
 #    name: dnet
 #    state: present
 
-- name: add container 
-  docker_container:
-    name: flaskapp
-    state: present
-    image: "{{ dockerhub_app }}"
-    ports:
-      - "5001:5000"
-      - "5002:5000"
-      - "5003:5000"
-    networks:
-      - name: dnet
+#- name: add container 
+#  docker_container:
+#    name: flaskapp
+#    state: present
+#    image: "{{ dockerhub_app }}"
+#    ports: "5000:5000"
+#    networks:
+#      - name: dnet
 #        links: flaskapp
 
-#- name: Add all containers to network
-#  docker_network:
-#    name: dnet
-#    state: started
-#    connected:
-#      - flaskapp
-#    appends: yes
+- include_tasks: "flask.yml"  
+
+- name: add all containers to network
+  docker_network:
+    name: dnet
+    state: started
+    connected:
+      - flaskapp_1
+      - flaskapp_2
+      - flaskapp_3
+    appends: yes
