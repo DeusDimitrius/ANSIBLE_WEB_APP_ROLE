@@ -7,7 +7,8 @@
     image: "{{ dockerhub_app }}"
     ports: "5001:5000"
     state: started
-    networks: dnet
+    networks: 
+      - name: dnet
 
 - name: second container with flask
   docker_container:
@@ -16,7 +17,8 @@
     image: "{{ dockerhub_app }}"
     ports: "5002:5000"
     state: started
-    networks: dnet
+    networks:
+      - name: dnet
 
 - name: third container with flask
   docker_container:
@@ -25,4 +27,5 @@
     image: "{{ dockerhub_app }}"
     ports: "5003:5000"
     state: started
-    networks: dnet
+    networks:
+      - name: dnet
