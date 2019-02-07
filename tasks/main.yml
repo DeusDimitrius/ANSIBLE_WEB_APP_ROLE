@@ -32,6 +32,8 @@
 #      - name: dnet
 #        links: flaskapp
 
+- include_tasks: "tools.yml"
+
 - include_tasks: "flask.yml"  
 
 - name: add all containers to network
