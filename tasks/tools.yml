@@ -1,0 +1,7 @@
+---
+
+- name: install docker-py, force upgrade
+  pip: 
+    name: docker-py
+    state: latest
+
