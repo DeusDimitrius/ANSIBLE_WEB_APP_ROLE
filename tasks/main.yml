@@ -38,6 +38,16 @@
 
 # - include_tasks: "tools.yml"
 
+- name: second container with flask
+  docker_container:
+    name: test
+    hostname: test
+    image: "{{ dockerhub_app }}"
+    ports: "5004:5000"
+    state: started
+    networks:
+      - name: snet
+
 - include_tasks: "flask.yml"  
 
 #- name: add all containers to network
