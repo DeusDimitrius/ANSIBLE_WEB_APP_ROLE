@@ -7,9 +7,9 @@
     image: "{{ dockerhub_app }}"
     exposed_ports: "5000"
     ports: "5001:5000"
-    state: started
     networks: 
       - name: snet
+    state: started
 
 - name: second container with flask
   docker_container:
