@@ -40,6 +40,14 @@
 
 - include_tasks: "flask.yml"  
 
+- name: first container start
+  docker_container:
+    name: flaskapp_1
+    ports: "5002:5000"
+    networks:
+      - name: snet
+    state: started
+
 #- name: add all containers to network
 #  become: true
 #  become_method: sudo
